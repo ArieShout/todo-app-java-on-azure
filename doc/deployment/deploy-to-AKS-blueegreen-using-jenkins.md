@@ -102,7 +102,7 @@ Because we are doing blue/green deployment, we need to do some initial setup. Yo
     ```
     Note that the dns name needs to be unique in your subscription.
 
-    Now, you can visit your app by navigating to e.g.,  http://aks-todoapp.<your-location>.cloudapp.azure.com. If you see the following, you have succeeded in setting up your AKS cluster.  
+    Now, you can visit your app by navigating to e.g.,  http://aks-todoapp.<your-location>.cloudapp.azure.com. If you see the following, the placeholder `Tomcat` image, you have succeeded in setting up your AKS cluster.  
     ![Tomcat](images/tomcat.png)
 
 ### Create Azure Container Registry
@@ -127,8 +127,10 @@ You will use Docker registry username and password in the next section.
 1. Connect to the server with SSH and install the build tools on the server where you will run your build:
    
    ```
-   sudo apt-get install git maven docker.io
+   sudo apt-get install git maven 
    ```
+   
+   Install Docker by following the steps [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce)
 
 1. Install additional tools needed for this example:
 
@@ -163,6 +165,12 @@ then search and install the following plugins: Azure Container Service Plugin.
     def dbName = '<your-dbname>'
 
     def dockerRegistry = '<your-acr-name>.azurecr.io'
+```
+    
+    And update ACR credential id
+    
+```
+    def dockerCredentialId = '<your-acr-credential-id>'
 ```
 
 ## Create job
